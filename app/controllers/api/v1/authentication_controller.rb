@@ -3,7 +3,7 @@ class Api::V1::AuthenticationController < ApplicationController
 
     def access_token
         if authenticated_user?
-            render json: { data: Jwt::Token.new(user: user).encode, message: :success }, status: 200
+            render json: { data: Jwt::Token.new.encode(user: user), message: :success }, status: 200
         else
             render json: { message: :unauthorized }, status: 400 # wrong request
         end
