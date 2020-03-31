@@ -1,17 +1,28 @@
 class Api::V1::AuthenticationController < ApplicationController
+    before_action :bad_request?
+
     def access_token
-        return render json: 'user not found' unless User.find_by_name(authentication_params[:name])
-        if current_user
-            render json: Jwt::Token.new(user: current_user).encode
+        if authenticated_user?
+            render json: { data: Jwt::Token.new(user: user).encode, message: :success }, status: 200
         else
-            render json: 'Wrong password'
+            render json: { message: :unauthorized }, status: 400 # wrong request
         end
     end
 
     private
 
-    def current_user
-        User.find_by_name(authentication_params[:name]).authenticate(authentication_params[:password])
+    def bad_request?
+        if authentication_params[:name].nil? || authentication_params[:password].nil?
+            return render json: { message: :bad_request }, status: 400
+        end
+    end
+
+    def authenticated_user?
+        user&.authenticate(authentication_params[:password])
+    end
+
+    def user
+        User.find_by_name(authentication_params[:name])
     end
 
     def authentication_params
