@@ -3,9 +3,9 @@ class Api::V1::AuthenticationController < ApplicationController
 
     def access_token
         if authenticated_user?
-            render json: { data: Jwt::Token.new.encode(user: user), message: :success }, status: 200
+            json(Jwt::Token.new.encode(user: user))
         else
-            render json: { message: :unauthorized }, status: 400 # wrong request
+            raise Utils::Errors::User::Unauthorized
         end
     end
 
@@ -13,7 +13,7 @@ class Api::V1::AuthenticationController < ApplicationController
 
     def bad_request?
         if authentication_params[:name].nil? || authentication_params[:password].nil?
-            return render json: { message: :bad_request }, status: 400
+            raise ActionController::BadRequest
         end
     end
 
