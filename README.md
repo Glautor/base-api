@@ -87,3 +87,21 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# i18n
+# JWT
+# Fast Json API
+# Postgres
+# RSpec
+# Factory Bot
+# Faker
+# Swagger
+# Logger
+# Rack Cors
+# Rack Attack
+
+-----------
+
+# Whenever
+# Action Cable
