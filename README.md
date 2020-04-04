@@ -1,4 +1,4 @@
-# AUTHENTICATION
+# BASE API
 
 This project is an API for authenticating
 
@@ -12,7 +12,7 @@ This project is an API for authenticating
 
 ## Step by Step
 
-`rails new authentication -d postgresql --api`
+`rails new base_api -d postgresql --api`
 
 Add the follow gems in your Gemfile
 gem 'bcrypt', '~> 3.1.7'
