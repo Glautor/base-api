@@ -4,9 +4,7 @@ Rails.application.routes.draw do
       namespace :authentication do
         post :access_token
       end
-      namespace :comments do
-        get :index
-      end
+      resources :comments, only: :index
     end
   end
 end
