@@ -3,7 +3,7 @@ class Api::V1::AuthenticationController < ApplicationController
 
     def access_token
         if authenticated_user?
-            json(Jwt::Token.new.encode(user: user))
+            json(Jwt::Token.new.encode(user.id))
         else
             raise Utils::Errors::User::Unauthorized
         end
