@@ -8,11 +8,13 @@ class ApplicationController < ActionController::API
         current_user.present? ? true : false
     end
 
-    private
+    protected
 
     def current_user
         User.find(decoded_token['data'])
     end
+
+    private
 
     def decoded_token
         Jwt::Token.new.decode(token: request.headers['Authorization']).first
