@@ -12,7 +12,7 @@ class Api::V1::AuthenticationController < ApplicationController
     private
 
     def bad_request?
-        if authentication_params[:name].nil? || authentication_params[:password].nil?
+        if authentication_params[:email].nil? || authentication_params[:password].nil?
             raise ActionController::BadRequest
         end
     end
@@ -22,10 +22,10 @@ class Api::V1::AuthenticationController < ApplicationController
     end
 
     def user
-        User.find_by_name(authentication_params[:name])
+        User.find_by_email(authentication_params[:email])
     end
 
     def authentication_params
-        params.require(:authentication).permit(:name, :password)
+        params.require(:authentication).permit(:email, :password)
     end
 end
