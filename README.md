@@ -88,12 +88,13 @@ Things you may want to cover:
 
 * ...
 
+# Configurar Dockerfile
 
-# i18n
 # JWT
 # Fast Json API
 # Postgres
 # RSpec
+# i18n
 # Factory Bot
 # Faker
 # Swagger
@@ -105,3 +106,4 @@ Things you may want to cover:
 
 # Whenever
 # Action Cable
+# Redis && Sidekiq
