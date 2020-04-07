@@ -11,6 +11,18 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  config.action_mailer.smtp_settings = {
+    :address   => ENV['SMTP_ADDRESS'],
+    :port      => ENV['SMTP_PORT'],
+    :enable_starttls_auto => true,
+    :user_name => ENV['SMTP_USER_NAME'],
+    :password  => ENV['SMTP_PASSWORD'],
+    :domain => ENV['SMTP_DOMAIN'],
+    :authentication => :login,
+    :enable_starttls_auto => true,
+    :openssl_verify_mode  => 'none'
+  }
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

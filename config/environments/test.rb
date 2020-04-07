@@ -13,6 +13,18 @@ Rails.application.configure do
   # preloads Rails for running tests, you may have to set it to true.
   config.eager_load = false
 
+  config.action_mailer.smtp_settings = {
+    :address   => ENV['SMTP_ADDRESS'],
+    :port      => ENV['SMTP_PORT'],
+    :enable_starttls_auto => true,
+    :user_name => ENV['SMTP_USER_NAME'],
+    :password  => ENV['SMTP_PASSWORD'],
+    :domain => ENV['SMTP_DOMAIN'],
+    :authentication => :login,
+    :enable_starttls_auto => true,
+    :openssl_verify_mode  => 'none'
+  }
+
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
