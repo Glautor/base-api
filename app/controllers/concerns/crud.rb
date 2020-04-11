@@ -1,29 +1,29 @@
 module Crud
     extend ActiveSupport::Concern
 
-    def create(model, params)
+    def model_create(model, params)
         model = model.create(params)
         if model.save
             json(model, :created)
         else
-            json(model, model.errors.messages)
+            json_error(:error, model.errors.messages)
         end
     end
 
-    def update(model, params)
-        data.update(params)
+    def model_update(model, params)
+        model.update(params)
         if model.save
             json(model, :updated)
         else
-            json(model, model.errors.messages)
+            json_error(:error, model.errors.messages)
         end
     end
 
-    def delete(model)
+    def model_delete(model)
         if model.delete
             json(model, :deleted)
         else
-            json(model, model.errors.messages)
+            json_error(:error, model.errors.messages)
         end
     end
 end
