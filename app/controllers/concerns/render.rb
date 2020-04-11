@@ -1,7 +1,7 @@
 module Render
     extend ActiveSupport::Concern
 
-    def json(data, type = :read)
+    def json(data, type = :ok)
        return render_without_serializer(data) if Utils::Commons.new.primitive_element?(data)
        render_serializer(data, type)
     end
@@ -13,11 +13,11 @@ module Render
     private
 
     def render_without_serializer(data)
-        render json: { data: data }, message: :success, status: 200
+        render json: { data: data }, message: :ok, status: data.nil? ? 204 : 200
     end
 
     def render_serializer(data, type)
-        render json: serialized_class(data), action: type, message: :success, status: 200
+        render json: serialized_class(data), message: type, status: type == :created ? 201 : 200
     end
 
     def serialized_class(data)
