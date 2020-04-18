@@ -101,8 +101,9 @@ Things you may want to cover:
 # Logger
 # Rack Cors
 # Rack Attack
-# Rubocop
-# Pry
+# - Rubocop
+# - Pry
+# - WillPaginate
 
 -----------
 

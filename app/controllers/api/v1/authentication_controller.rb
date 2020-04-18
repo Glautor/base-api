@@ -1,31 +1,31 @@
-class Api::V1::AuthenticationController < ApplicationController
-    before_action :bad_request?
+module Api
+  module V1
+    class AuthenticationController < ApplicationController
+      before_action :bad_request?
 
-    def access_token
-        if authenticated_user?
-            json(Jwt::Token.new.encode(user.id))
-        else
-            raise Utils::Errors::User::Unauthorized
-        end
-    end
+      def access_token
+        if authenticated_user? return json(Jwt::Token.new.encode(user.id))
+        raise Utils::Errors::User::Unauthorized
+      end
 
-    private
+      private
 
-    def bad_request?
-        if authentication_params[:email].nil? || authentication_params[:password].nil?
-            raise ActionController::BadRequest
-        end
-    end
+      def bad_request?
+        unless authentication_params[:email].nil? || authentication_params[:password].nil?; return
+        raise ActionController::BadRequest
+      end
 
-    def authenticated_user?
+      def authenticated_user?
         user&.authenticate(authentication_params[:password])
-    end
+      end
 
-    def user
+      def user
         User.find_by_email(authentication_params[:email])
-    end
+      end
 
-    def authentication_params
+      def authentication_params
         params.require(:authentication).permit(:email, :password)
+      end
     end
+  end
 end
