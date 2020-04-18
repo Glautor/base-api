@@ -2,10 +2,10 @@ module ExceptionHandler
   extend ActiveSupport::Concern
   
   included do
+    rescue_from StandardError, with: :standard_error
     rescue_from Utils::Errors::User::Unauthorized, with: :handle_unauthorized
     rescue_from ActionController::BadRequest, with: :handle_bad_request
     rescue_from Utils::Errors::Serializer::ClassNotFound, with: :handle_internal_server_error
-    rescue_from StandardError, with: :standard_error
   end
 
   private
