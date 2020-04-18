@@ -4,15 +4,14 @@ module Api
       before_action :bad_request?
 
       def access_token
-        if authenticated_user? return json(Jwt::Token.new.encode(user.id))
-        raise Utils::Errors::User::Unauthorized
+        raise Utils::Errors::User::Unauthorized unless authenticated_user?
+        json(Jwt::Token.new.encode(user.id))
       end
 
       private
 
       def bad_request?
-        unless authentication_params[:email].nil? || authentication_params[:password].nil?; return
-        raise ActionController::BadRequest
+        raise ActionController::BadRequest if authentication_params[:email].nil? || authentication_params[:password].nil?
       end
 
       def authenticated_user?
