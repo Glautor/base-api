@@ -3,7 +3,7 @@ module Render
 
     def json(data, type = :ok)
        return render_without_serializer(data) if Utils::Commons.new.primitive_element?(data)
-       render_serializer(data, type)
+       render_serializer(paginate(data), type)
     end
 
     def json_error(status, message)
@@ -18,6 +18,10 @@ module Render
 
     def render_serializer(data, type)
         render json: serialized_class(data), message: type, status: type == :created ? 201 : 200
+    end
+
+    def paginate(data)
+        data.paginate(:page => params[:page])
     end
 
     def serialized_class(data)
