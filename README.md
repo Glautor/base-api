@@ -90,9 +90,9 @@ Things you may want to cover:
 
 # Configurar Dockerfile
 
-# JWT
-# Fast Json API
-# Postgres
+# - JWT
+# - Fast Json API
+# - Postgres
 # RSpec
 # i18n
 # Factory Bot
@@ -101,7 +101,6 @@ Things you may want to cover:
 # Logger
 # Rack Cors
 # Rack Attack
-# - Rubocop
 # - Pry
 # - WillPaginate
 
