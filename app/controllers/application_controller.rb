@@ -17,6 +17,6 @@ class ApplicationController < ActionController::API
   private
 
   def decoded_token
-    Jwt::Token.new.decode(token: request.headers['Authorization']).first
+    Jwt::Token.new.decode token: request.headers['Authorization']
   end
 end
