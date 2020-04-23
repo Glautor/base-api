@@ -1,7 +1,7 @@
 module Crud
   extend ActiveSupport::Concern
 
-  def model_create(model, params)
+  def create_crud(model, params)
     model = model.create(params)
     if model.save
       json(model, :created)
@@ -10,7 +10,7 @@ module Crud
     end
   end
 
-  def model_update(model, params)
+  def model_crud(model, params)
     model.update(params)
     if model.save
       json(model, :updated)
@@ -19,7 +19,7 @@ module Crud
     end
   end
 
-  def model_delete(model)
+  def delete_crud(model)
     if model.delete
       json(model, :deleted)
     else
