@@ -7,15 +7,15 @@ module Api
       end
 
       def create
-        model_create(current_user.comments, comment_params)
+        create_crud(current_user.comments, comment_params)
       end
 
       def update
-        model_update(@comment, comment_params)
+        update_crud(@comment, comment_params)
       end
 
       def destroy
-        model_delete(@comment)
+        delete_crud(@comment)
       end
 
       private
