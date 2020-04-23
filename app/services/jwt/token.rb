@@ -6,7 +6,7 @@ module Jwt
     end
 
     def decode(token:)
-      JWT.decode token, Rails.application.secrets.SECRET_HMAC, true, { algorithm: 'HS256' }
+      JWT.decode(token, Rails.application.secrets.SECRET_HMAC, true, { algorithm: 'HS256' }).first
     end
   end
 end
