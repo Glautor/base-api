@@ -20,8 +20,7 @@ Rails.application.configure do
     :user_name => ENV['SMTP_USER_NAME'],
     :password  => ENV['SMTP_PASSWORD'],
     :domain => ENV['SMTP_DOMAIN'],
-    :authentication => :login,
-    :enable_starttls_auto => true
+    :authentication => :login
   }
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]

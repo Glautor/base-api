@@ -21,7 +21,6 @@ Rails.application.configure do
     :password  => ENV['SMTP_PASSWORD'],
     :domain => ENV['SMTP_DOMAIN'],
     :authentication => :login,
-    :enable_starttls_auto => true,
     :openssl_verify_mode  => 'none'
   }
 
