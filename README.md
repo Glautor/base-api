@@ -94,7 +94,7 @@ Things you may want to cover:
 # - Fast Json API
 # - Postgres
 # RSpec
-# i18n
+# - i18n
 # Factory Bot
 # Faker
 # Swagger
@@ -103,6 +103,7 @@ Things you may want to cover:
 # Rack Attack
 # - Pry
 # - WillPaginate
+# Awesome Rails Console
 
 -----------
 
