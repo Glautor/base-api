@@ -141,6 +141,10 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rename (1.0.6)
+      activesupport
+      rails (>= 3.0.0)
+      thor (>= 0.19.1)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.1)
@@ -207,6 +211,7 @@ DEPENDENCIES
   rack-attack (~> 6.2.2)
   rack-cors (~> 1.1.1)
   rails (~> 6.0.2.1)
+  rename (~> 1.0.6)
   rspec-rails (~> 4.0.0)
   rswag-api (~> 2.3.1)
   rswag-ui (~> 2.3.1)

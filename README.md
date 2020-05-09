@@ -88,6 +88,12 @@ Things you may want to cover:
 
 * ...
 
+
+# Set your project name
+
+- rails g rename:into NEW_NAME
+
+
 # Configurar Dockerfile
 
 # - JWT
