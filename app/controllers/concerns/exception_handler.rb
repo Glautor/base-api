@@ -11,6 +11,7 @@ module ExceptionHandler
   private
 
   def standard_error(e)
+    puts e.message
     json_error(500, e.message) 
   end
 
