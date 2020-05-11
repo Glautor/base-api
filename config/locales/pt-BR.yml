@@ -13,6 +13,7 @@
           comment:
             attributes:
               content: Conteúdo
+              status: Estado
           user:
             attributes:
               name: Nome

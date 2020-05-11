@@ -25,7 +25,7 @@ module Api
       end
 
       def comment_params
-        params.require(:comment).permit(:content)
+        params.require(:comment).permit(:content, :status)
       end
     end
   end
