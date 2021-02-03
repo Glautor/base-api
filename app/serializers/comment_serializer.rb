@@ -5,4 +5,8 @@ class CommentSerializer
   attribute :user do |object|
     object.user.slice(:id, :name, :email)
   end
+
+  attribute :post do |object|
+    object.user.slice(:id, :title, :description)
+  end
 end

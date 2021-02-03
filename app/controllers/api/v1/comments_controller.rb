@@ -1,9 +1,13 @@
 module Api
   module V1
     class CommentsController < ApplicationController
-      before_action :set_comment, only: %w[update destroy]
+      before_action :set_comment, only: %w[update destroy show]
       def index
         json(current_user.comments)
+      end
+
+      def show
+        @comment
       end
 
       def create
@@ -25,7 +29,7 @@ module Api
       end
 
       def comment_params
-        params.require(:comment).permit(:content, :status)
+        params.require(:comment).permit(:content, :status, :post_id)
       end
     end
   end

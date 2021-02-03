@@ -2,7 +2,7 @@ module Render
     extend ActiveSupport::Concern
 
     def json(data, type = :ok)
-      return render_without_serializer(data) if Utils::Commons.new.primitive_element?(data) || data.size.nil?
+      return render_without_serializer(data) if Utils::Commons.new.primitive_element?(data) || data.size.nil? || data.empty?
       render_serializer(paginate(data), type)
     end
 
