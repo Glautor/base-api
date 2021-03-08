@@ -1,6 +1,6 @@
 # BASE API
 
-This project is an API for authenticating
+This project is a base for a professional and scalable ruby on rails project
 
 ## Dependencies
 
@@ -9,3 +9,9 @@ This project is an API for authenticating
 * Devise
 
 * Ruby
+
+# Run
+```
+  rails db:create db:migrate db:seeds 
+  rails s
+```
