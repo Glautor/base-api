@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       namespace :posts do
         get :all
       end
+      namespace :users do
+        get :profile
+      end
 
       namespace :post do
         resources do

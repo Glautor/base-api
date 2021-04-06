@@ -3,6 +3,11 @@ module Api
     class UsersController < ApplicationController
       before_action :validate_admin, except: %w[index show]
       before_action :set_user, only: %w[update destroy show]
+
+      def profile
+        json(current_user)
+      end
+
       def index
         json(::User.all)
       end
