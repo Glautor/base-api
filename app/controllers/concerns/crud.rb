@@ -10,7 +10,7 @@ module Crud
     end
   end
 
-  def model_crud(model, params)
+  def update_crud(model, params)
     model.update(params)
     if model.save
       json(model, :updated)

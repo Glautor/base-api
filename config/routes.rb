@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       namespace :authentication do
         post :access_token
       end
+      resources :users, only: [:index, :create, :update, :destroy]
       resources :comments, only: [:index, :create, :update, :destroy]
       resources :posts, only: [:index, :create, :update, :destroy]
       namespace :posts do

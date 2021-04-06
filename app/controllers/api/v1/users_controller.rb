@@ -4,7 +4,7 @@ module Api
       before_action :validate_admin, except: %w[index show]
       before_action :set_user, only: %w[update destroy show]
       def index
-        json(User.all)
+        json(::User.all)
       end
 
       def show
@@ -30,11 +30,11 @@ module Api
       end
 
       def set_user
-        @user = User.find(params[:id])
+        @user = ::User.find(params[:id])
       end
 
       def user_params
-        params.require(:user).permit(:content, :status)
+        params.require(:user).permit(:name, :profile, :password, :password_confirmation)
       end
     end
   end

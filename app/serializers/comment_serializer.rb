@@ -7,6 +7,6 @@ class CommentSerializer
   end
 
   attribute :post do |object|
-    object.user.slice(:id, :title, :description)
+    object.post.slice(:id, :title, :description)
   end
 end

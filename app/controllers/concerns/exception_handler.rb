@@ -4,6 +4,7 @@ module ExceptionHandler
   included do
     rescue_from StandardError, with: :standard_error
     rescue_from Utils::Errors::User::Unauthorized, with: :handle_unauthorized
+    rescue_from Utils::Errors::Post::PostHasMoreThanTenComments, with: :handle_post_cant_destroy
     rescue_from ActionController::BadRequest, with: :handle_bad_request
     rescue_from Utils::Errors::Serializer::ClassNotFound, with: :handle_internal_server_error
   end
@@ -17,6 +18,10 @@ module ExceptionHandler
 
   def handle_unauthorized
     json_error(400, :unauthorized)
+  end
+
+  def handle_post_cant_destroy
+    json_error(400, :this_post_cant_be_deleted_because_it_has_too_many_comments)
   end
 
   def handle_bad_request

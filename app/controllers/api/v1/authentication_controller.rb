@@ -19,7 +19,7 @@ module Api
       end
 
       def user
-        User.find_by_email(authentication_params[:email])
+        ::User.find_by_email(authentication_params[:email])
       end
 
       def authentication_params
